@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">About Me</string>
+    <string name="name">Akansha Jain</string>
+    <string name="yellow_star">Yellow star</string>
+    <string name="presence_online">Online</string>
+    <string name="bio">Hello, My name is Akansha\n
+    Hello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\n
+    Hello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\n
+    Hello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\n
+    Hello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\n
+    Hello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\n
+    Hello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\n
+    Hello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\n
+    Hello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\n
+    Hello, My name is Akansha\n</string>
+    <string name="what_is_your_nickname">What is your nickname?</string>
+    <string name="done">Done</string>
+</resources>
