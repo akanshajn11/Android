@@ -61,12 +61,14 @@ class ScoreFragment : Fragment() {
         // Get args using by navArgs property delegate
         val scoreFragmentArgs by navArgs<ScoreFragmentArgs>()
         binding.scoreText.text = scoreFragmentArgs.score.toString()
-        binding.playAgainButton.setOnClickListener { onPlayAgain() }
+     //   binding.playAgainButton.setOnClickListener { onPlayAgain() }
 
         viewModelFactory = ScoreViewModelFactory(ScoreFragmentArgs.fromBundle(arguments!!).score)
 
         //By passing in the ViewModel factory, you're telling ViewModelProviders to use this factory to create ScoreViewModel
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(ScoreViewModel::class.java)
+
+        binding.scoreViewModel=viewModel
 
         viewModel.score.observe(this, Observer { newScore ->
             binding.scoreText.text = newScore.toString()
