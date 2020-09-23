@@ -22,7 +22,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.example.android.trackmysleepquality.R
+import com.example.android.trackmysleepquality.database.SleepDatabase
 import com.example.android.trackmysleepquality.databinding.FragmentSleepTrackerBinding
 
 /**
@@ -30,6 +33,7 @@ import com.example.android.trackmysleepquality.databinding.FragmentSleepTrackerB
  * a database. Cumulative data is displayed in a simple scrollable TextView.
  * (Because we have not learned about RecyclerView yet.)
  */
+@Suppress("DEPRECATION")
 class SleepTrackerFragment : Fragment() {
 
     /**
@@ -44,6 +48,21 @@ class SleepTrackerFragment : Fragment() {
         val binding: FragmentSleepTrackerBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_sleep_tracker, container, false)
 
+        binding.lifecycleOwner = this
+
+
+        //reference to application context
+        val application = requireNotNull(this.activity).application
+
+        //reference to DAO of the database
+        val dataSource = SleepDatabase.getInstance(application).sleepDatabaseDao
+
+        //instance of view model factory
+        val viewModelFactory = SleepTrackerViewModelFactory(dataSource, application)
+
+        //instance of sleep tracker view model
+        val sleepTrackerViewModel = ViewModelProviders.of(this, viewModelFactory).get(SleepTrackerViewModel::class.java)
+        binding.sleepTrackerViewModel = sleepTrackerViewModel
         return binding.root
     }
 }
