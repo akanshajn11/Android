@@ -9,4 +9,7 @@ This application was developed to implement below features
 
 The user will enter the details in various fields. Once done, user will click the Submit button to submit the data. The data entered by the user will be saved in the binding object inside activity. Using data binding in the layout, the details will be displayed to the user. User can scroll to view data for long text field.
 
-![](Images/Screen1.png) &nbsp;&nbsp;&nbsp;&nbsp;      ![](Images/Screen2.png)
+
+<img src="Images/s1.jpg" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Images/s2.jpg" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Images/s3.jpg" width="30%">
+</br></br></br></br>
+<img src="Images/s4.jpg" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Images/s5.jpg" width="30%">
