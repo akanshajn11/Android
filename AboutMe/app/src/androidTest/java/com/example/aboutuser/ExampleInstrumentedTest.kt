@@ -1,4 +1,4 @@
-package com.example.aboutme
+package com.example.aboutuser
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

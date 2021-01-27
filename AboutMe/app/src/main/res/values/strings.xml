@@ -1,18 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">About Me</string>
-    <string name="name">Akansha Jain</string>
-    <string name="yellow_star">Yellow star</string>
-    <string name="presence_online">Online</string>
-    <string name="bio">Hello, My name is Akansha\n
-    Hello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\n
-    Hello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\n
-    Hello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\n
-    Hello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\n
-    Hello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\n
-    Hello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\n
-    Hello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\n
-    Hello, My name is Akansha\nHello, My name is Akansha\nHello, My name is Akansha\n
-    Hello, My name is Akansha\n</string>
-    <string name="what_is_your_nickname">What is your nickname?</string>
-    <string name="done">Done</string>
+    <string name="app_name">About User</string>
+
+    <string name="nameHint">Add your name</string>
+    <string name="nicknameHint">Add your nickname</string>
+    <string name="emailHint">Add your email</string>
+    <string name="techHint">Add your technology</string>
+    <string name="cityHint">Add your city</string>
+    <string name="projectsHint">Add your projects description</string>
+
+    <string name="title">"Enter your details:"</string>
+    <string name="titleAfterSave">"Your details:"</string>
+
+    <string name="submit">Submit</string>
+
+    <string-array name="userType">
+        <item>Student</item>
+        <item>Professional</item>
+    </string-array>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string name="nameLabel">Name: </string>
+    <string name="nickLabel">Nickname: </string>
+    <string name="emailLabel">Email: </string>
+    <string name="techLabel">Technology: </string>
+    <string name="cityLabel">City: </string>
+    <string name="genderLabel">Gender: </string>
+    <string name="typeLabel">User Type: </string>
+    <string name="activeLabel">Is Active: </string>
+    <string name="projectsLabel">Projects Description: </string>
+
 </resources>

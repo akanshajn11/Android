@@ -42,10 +42,7 @@ class DetailActivity : AppCompatActivity() {
             .load(intent.extras?.getString("avatarUrl"))
             .into(userImage)
 
-
-        val application = requireNotNull(this).application
-        val dataSource = UserDatabase.getInstance(application).userDatabaseDao
-        val databaseViewModelFactory = UserViewModelFactory(dataSource, application)
+        val databaseViewModelFactory = UserViewModelFactory( UserDatabase.getInstance(requireNotNull(this).application).userDatabaseDao,  requireNotNull(this).application)
         databaseViewModel =
             ViewModelProvider(this, databaseViewModelFactory).get(UserViewModel::class.java)
     }

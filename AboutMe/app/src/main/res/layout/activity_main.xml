@@ -1,97 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-     <variable
-         name="myName"
-         type="com.example.aboutme.MyName" />
+
+        <variable
+            name="user"
+            type="com.example.aboutuser.User" />
     </data>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingStart="@dimen/padding"
-    android:paddingEnd="@dimen/padding">
 
-    <TextView
-        android:id="@+id/name_text"
-        style="@style/NameStyle"
+    <LinearLayout
+        android:id="@+id/main_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@={myName.name}"
-        android:textAlignment="center" />
-<!--        android:text="@string/name"-->
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/padding"
+        android:paddingEnd="@dimen/padding"
+        android:paddingBottom="@dimen/padding">
+
+        <TextView
+            android:id="@+id/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin_top"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
+            android:text="@string/title"
+            android:textSize="@dimen/title_text_size"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:id="@+id/main_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
 
-    <EditText
-        android:id="@+id/nickname_edit"
-        style="@style/NameStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/what_is_your_nickname"
-        android:inputType="textMultiLine|textPersonName|text|textEmailAddress"
-        android:textAlignment="center" />
+                <EditText
+                    android:id="@+id/name_edit"
+                    style="@style/EditTextStyle"
+                    android:hint="@string/nameHint"
+                    android:inputType="textPersonName" />
 
-    <Button
-        android:id="@+id/done_button"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/done"
-        android:layout_gravity="center_horizontal"
-        />
+                <EditText
+                    android:id="@+id/nickname_edit"
+                    style="@style/EditTextStyle"
+                    android:hint="@string/nicknameHint"
+                    android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/nickname_text"
-        style="@style/NameStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="@={myName.nickname}"
-        android:visibility="gone" />
+                <EditText
+                    android:id="@+id/email_edit"
+                    style="@style/EditTextStyle"
+                    android:hint="@string/emailHint"
+                    android:inputType="textEmailAddress" />
 
-    <ImageView
-        android:id="@+id/star_image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/layout_margin"
-        android:contentDescription="@string/yellow_star"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
+                <EditText
+                    android:id="@+id/tech_edit"
+                    style="@style/EditTextStyle"
+                    android:hint="@string/techHint"
+                    android:inputType="text" />
 
-    <ScrollView
-        android:id="@+id/bio_scroll"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+                <EditText
+                    android:id="@+id/city_edit"
+                    style="@style/EditTextStyle"
+                    android:hint="@string/cityHint"
+                    android:inputType="text" />
+
+                <Spinner
+                    android:id="@+id/gender_edit"
+                    style="@style/SpinnerStyle" />
+
+                <Spinner
+                    android:id="@+id/userType_edit"
+                    style="@style/SpinnerStyle" />
+
+                <CheckBox
+                    android:id="@+id/active_edit"
+                    style="@style/CheckboxStyle"
+                    android:checked="false"
+                    android:text="Active" />
+
+                <EditText
+                    android:id="@+id/projects_edit"
+                    style="@style/EditLongTextStyle"
+                    android:gravity="top"
+                    android:hint="@string/projectsHint"
+                    android:inputType="textMultiLine"
+                    android:lines="10" />
+
+                <Button
+                    android:id="@+id/submit_button"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/submit" />
+
+            </LinearLayout>
+        </ScrollView>
+
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/online_image"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/presence_online"
-                app:srcCompat="@android:drawable/presence_online" />
-
+            android:id="@+id/name_layout"
+            style="@style/TextLayoutStyle"
+            android:layout_marginTop="@dimen/text_margin_top">
 
             <TextView
-                android:id="@+id/bio_text"
-                style="@style/NameStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:lineSpacingMultiplier="@dimen/line_spacing"
-                android:text="@string/bio"
-                />
+                android:id="@+id/name_label"
+                style="@style/LabelStyle"
+                android:text="@string/nameLabel" />
+
+            <TextView
+                android:id="@+id/name_text"
+                style="@style/TextStyle"
+                android:text="@={user.name}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nickname_layout"
+            style="@style/TextLayoutStyle">
+
+            <TextView
+                android:id="@+id/nickname_label"
+                style="@style/LabelStyle"
+                android:text="@string/nickLabel" />
+
+            <TextView
+                android:id="@+id/nickname_text"
+                style="@style/TextStyle"
+                android:text="@={user.nickname}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/email_layout"
+            style="@style/TextLayoutStyle">
+
+            <TextView
+                android:id="@+id/email_label"
+                style="@style/LabelStyle"
+                android:text="@string/emailLabel" />
+
+            <TextView
+                android:id="@+id/email_text"
+                style="@style/TextStyle"
+                android:text="@={user.email}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tech_layout"
+            style="@style/TextLayoutStyle">
+
+            <TextView
+                android:id="@+id/tech_label"
+                style="@style/LabelStyle"
+                android:text="@string/techLabel" />
+
+            <TextView
+                android:id="@+id/tech_text"
+                style="@style/TextStyle"
+                android:text="@={user.tech}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/city_layout"
+            style="@style/TextLayoutStyle">
+
+            <TextView
+                android:id="@+id/city_label"
+                style="@style/LabelStyle"
+                android:text="@string/cityLabel" />
+
+            <TextView
+                android:id="@+id/city_text"
+                style="@style/TextStyle"
+                android:text="@={user.city}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gender_layout"
+            style="@style/TextLayoutStyle">
+
+            <TextView
+                android:id="@+id/gender_label"
+                style="@style/LabelStyle"
+                android:text="@string/genderLabel" />
+
+            <TextView
+                android:id="@+id/gender_text"
+                style="@style/TextStyle"
+                android:text="@={user.gender}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/type_layout"
+            style="@style/TextLayoutStyle">
+
+            <TextView
+                android:id="@+id/type_label"
+                style="@style/LabelStyle"
+                android:text="@string/typeLabel" />
+
+            <TextView
+                android:id="@+id/userType_text"
+                style="@style/TextStyle"
+                android:text="@={user.userType}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/active_layout"
+            style="@style/TextLayoutStyle">
+
+            <TextView
+                android:id="@+id/active_label"
+                style="@style/LabelStyle"
+                android:text="@string/activeLabel" />
+
+            <TextView
+                android:id="@+id/active_text"
+                style="@style/TextStyle"
+                android:text="@={user.Active}" />
 
         </LinearLayout>
 
-    </ScrollView>
+        <TextView
+            android:id="@+id/projects_label"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/edit_text_height"
+            android:text="@string/projectsLabel"
+            android:textStyle="bold"
+            android:visibility="gone" />
 
+        <ScrollView
+            android:id="@+id/projects_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_frame"
+            android:visibility="gone">
 
-</LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/projects_text"
+                    style="@style/TextStyle"
+                    android:lineSpacingMultiplier="@dimen/line_spacing"
+                    android:padding="10dp"
+                    android:text="@={user.projects}" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
 </layout>
