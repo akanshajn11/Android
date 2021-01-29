@@ -7,4 +7,7 @@
     <dimen name="cardHeight">150dp</dimen>
     <dimen name="cardMargin">1dp</dimen>
     <dimen name="cardElevation">50dp</dimen>
+
+    <dimen name="search_view_height">80dp</dimen>
+
 </resources>

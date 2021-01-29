@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Nasa Gallery</string>
+
     <string name="box_one">Box One</string>
     <string name="box_two">Box Two</string>
     <string name="box_three">Box Three</string>
@@ -10,4 +11,6 @@
     <string name="button_green">GREEN</string>
     <string name="how_to_play">How to play</string>
     <string name="tap_the_boxes_and_buttons">Tap the screen and buttons</string>
+
+    <string name="search_hint">Search Nasa Gallery</string>
 </resources>
