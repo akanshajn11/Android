@@ -10,7 +10,7 @@ import com.example.nasagallery.network.LinksNasa
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.grid_cell.view.*
 
-class OverviewAdapter(private val imageList: List<LinksNasa>) :
+class OverviewAdapter(private val imageList: List<List<LinksNasa>>) :
     RecyclerView.Adapter<OverviewAdapter.OverviewHolder>() {
     class OverviewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageLink: ImageView = itemView.image
@@ -23,11 +23,13 @@ class OverviewAdapter(private val imageList: List<LinksNasa>) :
     }
 
     override fun onBindViewHolder(holder: OverviewHolder, position: Int) {
-        val currentItem = imageList[position]
-
-        Picasso.with(holder.imageLink.context)
-            .load(currentItem.href)
-            .into(holder.imageLink)
+        val currentItemList = imageList[position]
+        if (currentItemList.isNotEmpty()) {
+            val currentItem = currentItemList.first()
+            Picasso.with(holder.imageLink.context)
+                .load(currentItem.href)
+                .into(holder.imageLink)
+        }
     }
 
     override fun getItemCount(): Int {

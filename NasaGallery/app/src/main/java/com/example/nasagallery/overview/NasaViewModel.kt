@@ -10,10 +10,10 @@ import retrofit2.Response
 
 class NasaViewModel() : ViewModel() {
 
-    private val _data = MutableLiveData<List<Item>>()
+    private val _items = MutableLiveData<List<Item>>()
 
-    val data: LiveData<List<Item>>
-        get() = _data
+    val items: LiveData<List<Item>>
+        get() = _items
 
     private val _error = MutableLiveData<String>()
     val error: LiveData<String>
@@ -27,7 +27,7 @@ class NasaViewModel() : ViewModel() {
                 call: Call<CollectionNasa>,
                 response: Response<CollectionNasa>
             ) {
-                _data.value = response.body()?.collection?.items
+                _items.value = response.body()?.collection?.items
             }
 
             override fun onFailure(call: Call<CollectionNasa>, t: Throwable) {

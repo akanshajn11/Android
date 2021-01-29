@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <dimen name="margin_wide">16dp</dimen>
     <dimen name="margin_half">8dp</dimen>
     <dimen name="box_text_size">24sp</dimen>
+
+    <dimen name="cardHeight">150dp</dimen>
+    <dimen name="cardMargin">1dp</dimen>
+    <dimen name="cardElevation">50dp</dimen>
 </resources>
