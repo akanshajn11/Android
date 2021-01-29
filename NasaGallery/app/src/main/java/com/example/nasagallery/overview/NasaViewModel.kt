@@ -11,13 +11,13 @@ import retrofit2.Response
 class NasaViewModel() : ViewModel() {
 
     private val _items = MutableLiveData<List<Item>>()
-
     val items: LiveData<List<Item>>
         get() = _items
 
     private val _error = MutableLiveData<String>()
     val error: LiveData<String>
         get() = _error
+
 
     fun getData(searchValue: String) {
 
@@ -33,7 +33,6 @@ class NasaViewModel() : ViewModel() {
             override fun onFailure(call: Call<CollectionNasa>, t: Throwable) {
                 _error.value = "Failure: " + t.message
             }
-
 
         })
     }

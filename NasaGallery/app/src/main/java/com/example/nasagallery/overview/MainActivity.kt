@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adapter: OverviewAdapter
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,24 +28,28 @@ class MainActivity : AppCompatActivity() {
         val viewModel =
             ViewModelProvider(this, NasaViewModelFactory()).get(NasaViewModel::class.java)
 
-
         binding.lifecycleOwner = this
+
+        val searchValue = intent.extras?.getString("searchValue")
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = GridLayoutManager(this, 3)
         swipeRefreshLayout = findViewById(R.id.swipeContainer)
 
-        fetchImages(viewModel)
+        fetchImages(viewModel, searchValue)
 
         swipeRefreshLayout.setOnRefreshListener {
-            fetchImages(viewModel)
+            fetchImages(viewModel, searchValue)
             Toast.makeText(applicationContext, "Images Refreshed", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun fetchImages(viewModel: NasaViewModel) {
+    private fun fetchImages(viewModel: NasaViewModel, searchValue: String?) {
         swipeRefreshLayout.isRefreshing = true
-        viewModel.getData("Mars")
+
+        if (searchValue != null)
+            viewModel.getData(searchValue)
+
         viewModel.items.observe(this, Observer { itemsList ->
             adapter = OverviewAdapter(itemsList.map { it.links })
             recyclerView.adapter = adapter

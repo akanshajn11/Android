@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.example.nasagallery.search.SearchActivity">
 
-    <SearchView
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_box"
         android:layout_width="0dp"
         android:layout_height="@dimen/search_view_height"
         android:layout_marginStart="20dp"
