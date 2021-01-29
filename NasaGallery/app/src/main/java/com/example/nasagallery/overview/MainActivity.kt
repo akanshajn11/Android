@@ -1,7 +1,10 @@
 package com.example.nasagallery.overview
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -10,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.nasagallery.R
 import com.example.nasagallery.databinding.ActivityMainBinding
+import com.example.nasagallery.search.SearchActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -55,5 +59,16 @@ class MainActivity : AppCompatActivity() {
             recyclerView.adapter = adapter
             swipeRefreshLayout.isRefreshing = false
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val intent = Intent(this, SearchActivity::class.java)
+        startActivity(intent)
+        return super.onOptionsItemSelected(item)
     }
 }
