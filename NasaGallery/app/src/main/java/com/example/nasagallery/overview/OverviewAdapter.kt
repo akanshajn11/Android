@@ -10,7 +10,10 @@ import com.example.nasagallery.network.LinksNasa
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.grid_cell.view.*
 
-class OverviewAdapter(private val imageList: List<List<LinksNasa>>) :
+class OverviewAdapter(
+    private val imageList: List<List<LinksNasa>>,
+    private val imageClickListener: OnImageClickListener
+) :
     RecyclerView.Adapter<OverviewAdapter.OverviewHolder>() {
     class OverviewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageLink: ImageView = itemView.image
@@ -30,11 +33,18 @@ class OverviewAdapter(private val imageList: List<List<LinksNasa>>) :
                 .load(currentItem.href)
                 .into(holder.imageLink)
         }
+        holder.itemView.setOnClickListener {
+            imageClickListener.onImageClick(position)
+        }
     }
 
     override fun getItemCount(): Int {
         return imageList.size
 
+    }
+
+    interface OnImageClickListener {
+        fun onImageClick(position: Int)
     }
 
 }

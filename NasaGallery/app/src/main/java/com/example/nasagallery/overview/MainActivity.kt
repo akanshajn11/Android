@@ -13,15 +13,17 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.nasagallery.R
 import com.example.nasagallery.databinding.ActivityMainBinding
+import com.example.nasagallery.detail.DetailActivity
+import com.example.nasagallery.network.Item
 import com.example.nasagallery.search.SearchActivity
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OverviewAdapter.OnImageClickListener {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: OverviewAdapter
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
-
+    private lateinit var list: List<Item>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +57,8 @@ class MainActivity : AppCompatActivity() {
             viewModel.getData(searchValue)
 
         viewModel.items.observe(this, Observer { itemsList ->
-            adapter = OverviewAdapter(itemsList.map { it.links })
+            list = itemsList
+            adapter = OverviewAdapter(itemsList.map { it.links }, this)
             recyclerView.adapter = adapter
             swipeRefreshLayout.isRefreshing = false
         })
@@ -70,5 +73,25 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, SearchActivity::class.java)
         startActivity(intent)
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onImageClick(position: Int) {
+        val currentItemLinks = list.map { it.links }?.get(position)
+        val currentLink = currentItemLinks?.first().href
+
+        val currentItemDataList = list.map { it.data }?.get(position)
+        val title = currentItemDataList?.first().title
+        val location = currentItemDataList?.first().location
+        val photographer = currentItemDataList?.first().photographer
+        val description = currentItemDataList?.first().description
+
+
+        val intent: Intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra("imageLink", currentLink)
+        intent.putExtra("title", title)
+        intent.putExtra("location", location)
+        intent.putExtra("photographer", photographer)
+        intent.putExtra("description", description)
+        startActivity(intent)
     }
 }

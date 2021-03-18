@@ -4,7 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class DataNasa(
     @SerializedName("title") val title: String = "",
-    @SerializedName("description") val description: String = ""
+    @SerializedName("description") val description: String = "",
+    @SerializedName("location") val location: String = "",
+    @SerializedName("photographer") val photographer: String = ""
 )
 
 data class LinksNasa(

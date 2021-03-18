@@ -9,5 +9,7 @@
     <dimen name="cardElevation">50dp</dimen>
 
     <dimen name="search_view_height">80dp</dimen>
+    <dimen name="image_height">200dp</dimen>
+    <dimen name="fav_icon_height">48dp</dimen>
 
 </resources>
